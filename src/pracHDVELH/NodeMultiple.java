@@ -36,7 +36,9 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple getDaughter(int i) {
 		/* TO BE COMPLETED */
-		return daughters[i];
+		if (i <= NODE_MAX_ARITY || i < 0) {
+			return daughters[i];
+		}
 	}
 
 	/**
@@ -55,7 +57,7 @@ public class NodeMultiple {
 	 */
 	public void setDaughter(NodeMultiple daughter, int i) {
 		/* TO BE COMPLETED */
-		if (i < 10)
+		if (i < 10 && i > 0)
 			daughters[i] = daughter;
 	}
 
