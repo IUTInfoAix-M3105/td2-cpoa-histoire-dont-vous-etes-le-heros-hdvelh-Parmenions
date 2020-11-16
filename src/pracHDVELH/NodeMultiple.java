@@ -125,7 +125,6 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple() {
 		/* TO BE COMPLETED */
-		data = new Object();
 		daughters = new NodeMultiple[NODE_MAX_ARITY];
 	}
 
@@ -137,7 +136,6 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple(Object data) {
 		/* TO BE COMPLETED */
-		this.data = new Object();
 		this.data = data;
 		daughters = new NodeMultiple[NODE_MAX_ARITY];
 	}
