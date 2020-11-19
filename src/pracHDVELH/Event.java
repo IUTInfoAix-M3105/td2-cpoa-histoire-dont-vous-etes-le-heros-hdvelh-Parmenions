@@ -1,7 +1,7 @@
 /**
  * File: NodeMultipleEvents.java
  * Creation: 7 nov. 2020, Jean-Philippe.Prost@univ-amu.fr
- * Template étudiants
+ * Template Ã©tudiants
  */
 package pracHDVELH;
 
@@ -18,12 +18,20 @@ public class Event extends NodeMultiple {
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
 	private int Id;
+	private String playerAnswer;
+	private Scanner reader;
+	private int chosenPath;
+	private GUIManager gui;
+	private String data;
+	static private int lastId = 1;
+
+
 
 	/**
 	 * @return the playerAnswer
 	 */
 	public String getPlayerAnswer() {
-		/* TO BE COMPLETED */
+		return PlayerAnswer;
 	}
 
 	/**
@@ -31,13 +39,14 @@ public class Event extends NodeMultiple {
 	 */
 	public void setPlayerAnswer(String playerAnswer) {
 		/* TO BE COMPLETED */
+		this.playerAnswer = playerAnswer;
 	}
 
 	/**
 	 * @return the reader
 	 */
 	public Scanner getReader() {
-		/* TO BE COMPLETED */
+		return reader;
 	}
 
 	/**
@@ -45,13 +54,14 @@ public class Event extends NodeMultiple {
 	 */
 	public void setReader(Scanner reader) {
 		/* TO BE COMPLETED */
+		this.reader = reader;
 	}
 
 	/**
 	 * @return the chosenPath
 	 */
 	public int getChosenPath() {
-		/* TO BE COMPLETED */
+		return chosenPath;
 	}
 
 	/**
@@ -59,6 +69,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setChosenPath(int chosenPath) {
 		/* TO BE COMPLETED */
+		this.chosenPath = chosenPath;
 	}
 
 	/* Methods */
@@ -67,6 +78,7 @@ public class Event extends NodeMultiple {
 	 */
 	public String getData() {
 		/* TO BE COMPLETED */
+		return data;
 	}
 
 	/**
@@ -75,6 +87,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setData(String data) {
 		/* TO BE COMPLETED */
+		this.data = data;
 	}
 
 	/**
@@ -92,6 +105,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setDaughter(Event daughter, int i) {
 		/* TO BE COMPLETED */
+
 	}
 
 	/**
@@ -99,6 +113,7 @@ public class Event extends NodeMultiple {
 	 */
 	public GUIManager getGui() {
 		/* TO BE COMPLETED */
+		return gui;
 	}
 
 	/**
@@ -106,17 +121,36 @@ public class Event extends NodeMultiple {
 	 */
 	public void setGui(GUIManager gui) {
 		/* TO BE COMPLETED */
+		this.gui = gui;
 	}
 
 	/**
 	 * @return the id
 	 */
 	public int getId() {
+		return Id;
 		/* TO BE COMPLETED */
 	}
 
-	/* Methods */
-	/* TO BE COMPLETED */
+	public Event run() {
+		gui.outputln(toString());
+		gui.output(PROMPT_ANSWER);
+		playerAnswer = reader.next();
+		chosenPath = interpretAnswer();
+		return getDaughter (chosenPath);
+	}
+
+	public Event(GUIManager gui, String data) {
+		super(data);
+		this.gui = gui;
+		Id = ++ lastId ;
+		reader=gui.getInputReader();
+		/* Methods */
+		/* TO BE COMPLETED */
+	}
+
+	public Event() {
+		this(new GUIManager(), "");
 	}
 }
 
